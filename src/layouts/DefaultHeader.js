@@ -7,7 +7,6 @@ import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import InputBase from '@mui/material/InputBase';
 import Badge from '@mui/material/Badge';
-import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
 import MailIcon from '@mui/icons-material/Mail';
 import NotificationsIcon from '@mui/icons-material/Notifications';
@@ -21,7 +20,7 @@ const Search = styled('div')(({ theme }) => ({
   },
   marginRight: theme.spacing(2),
   marginLeft: 0,
-  
+  border: '1px solid #ddd',
   width: '100%',
   [theme.breakpoints.up('sm')]: {
     marginLeft: theme.spacing(3),
@@ -55,9 +54,9 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 export default function DefaultHeader({height}) { 
   return (
-    <Box sx={{height: height}}>
-      <AppBar position="static">
-        <Toolbar>
+    <Box>
+      <AppBar position="static" color='transparent' style={{boxShadow: 'none', borderBottom: '1px solid #ddd'}}>
+        <Toolbar sx={{height: height}}>
           {/* <IconButton
             size="large"
             edge="start"

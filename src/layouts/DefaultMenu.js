@@ -5,10 +5,9 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import InboxIcon from '@mui/icons-material/Inbox';
-import DraftsIcon from '@mui/icons-material/Drafts';
 import SvgMuiLogo from '../icons/SVGMuiIcon';
 import { Divider } from '@mui/material';
+import { listItemMenu } from '../common/constant';
 
 export default function BasicList({height}) {
   return (
@@ -20,22 +19,17 @@ export default function BasicList({height}) {
         </Box>
         <Divider/>
         <List>
-          <ListItem disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                <InboxIcon />
-              </ListItemIcon>
-              <ListItemText primary="Inbox" />
-            </ListItemButton>
-          </ListItem>
-          <ListItem disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                <DraftsIcon />
-              </ListItemIcon>
-              <ListItemText primary="Drafts" />
-            </ListItemButton>
-          </ListItem>
+          {listItemMenu.map(e=> 
+            (
+              <ListItem key={e.id} disablePadding>
+              <ListItemButton>
+                <ListItemIcon>
+                  {e.icon}
+                </ListItemIcon>
+                <ListItemText primary={e.text} />
+              </ListItemButton>
+            </ListItem>
+            ))}
         </List>
       </nav>
     </Box>
